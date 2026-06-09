@@ -1,0 +1,228 @@
+
+<style>
+  .fp-wrap { font-family: var(--font-sans); padding: 1rem 0; }
+  .fp-tabs { display: flex; gap: 8px; margin-bottom: 1.5rem; }
+  .fp-tab { padding: 6px 18px; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); font-size: 13px; cursor: pointer; background: var(--color-background-primary); color: var(--color-text-secondary); }
+  .fp-tab.active { background: #185FA5; color: #fff; border-color: #185FA5; font-weight: 500; }
+  .fp-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .fp-badge { font-size: 12px; padding: 3px 10px; border-radius: 20px; background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); }
+  .fp-canvas { width: 100%; }
+  .fp-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 1rem; }
+  .fp-leg-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--color-text-secondary); }
+  .fp-leg-box { width: 14px; height: 14px; border-radius: 2px; border: 0.5px solid rgba(0,0,0,0.15); flex-shrink: 0; }
+</style>
+
+<div class="fp-wrap">
+  <div class="fp-tabs">
+    <button class="fp-tab active" onclick="showFloor('ground')">Ground floor</button>
+    <button class="fp-tab" onclick="showFloor('first')">First floor</button>
+  </div>
+  <div class="fp-meta">
+    <span class="fp-badge">30 ft × 46.6 ft</span>
+    <span class="fp-badge">North facing ↑</span>
+    <span class="fp-badge">Plot area ≈ 1,398 sq ft</span>
+  </div>
+
+  <div id="ground-floor">
+    <svg class="fp-canvas" viewBox="0 0 520 620" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#b0b0b0" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+
+      <!-- north arrow -->
+      <g transform="translate(470,32)">
+        <circle cx="0" cy="0" r="16" fill="none" stroke="#185FA5" stroke-width="1"/>
+        <polygon points="0,-11 4,5 0,2 -4,5" fill="#185FA5"/>
+        <text x="0" y="24" text-anchor="middle" font-size="11" fill="#185FA5" font-weight="500">N</text>
+      </g>
+
+      <!-- outer wall -->
+      <rect x="40" y="60" width="380" height="520" fill="none" stroke="#2C2C2A" stroke-width="3" rx="0"/>
+
+      <!-- wall fill -->
+      <rect x="40" y="60" width="380" height="520" fill="#F1EFE8" stroke="#888780" stroke-width="0.5"/>
+
+      <!-- PARKING area (large, front) -->
+      <rect x="43" y="63" width="374" height="230" fill="#E6F1FB" stroke="#378ADD" stroke-width="1"/>
+      <text x="230" y="155" text-anchor="middle" font-size="15" fill="#0C447C" font-weight="500">Parking</text>
+      <text x="230" y="174" text-anchor="middle" font-size="11" fill="#185FA5">~30 × 18.5 ft</text>
+      <!-- gate -->
+      <rect x="155" y="60" width="70" height="6" fill="#185FA5" rx="1"/>
+      <text x="190" y="55" text-anchor="middle" font-size="10" fill="#185FA5">Main gate</text>
+
+      <!-- dividing wall between parking & interior -->
+      <line x1="40" y1="293" x2="420" y2="293" stroke="#2C2C2A" stroke-width="3"/>
+
+      <!-- ROOM (ground floor, right side) -->
+      <rect x="255" y="296" width="162" height="170" fill="#EAF3DE" stroke="#639922" stroke-width="1"/>
+      <text x="336" y="380" text-anchor="middle" font-size="14" fill="#27500A" font-weight="500">Bedroom</text>
+      <text x="336" y="396" text-anchor="middle" font-size="11" fill="#3B6D11">~13 × 14 ft</text>
+      <!-- door hint -->
+      <line x1="255" y1="340" x2="255" y2="356" stroke="#27500A" stroke-width="1.5"/>
+      <path d="M255,340 Q271,340 271,356" fill="none" stroke="#27500A" stroke-width="1" stroke-dasharray="3,2"/>
+
+      <!-- WASHROOM (ground floor, right-bottom corner) -->
+      <rect x="255" y="466" width="162" height="111" fill="#FAEEDA" stroke="#BA7517" stroke-width="1"/>
+      <text x="336" y="520" text-anchor="middle" font-size="13" fill="#633806" font-weight="500">Washroom</text>
+      <text x="336" y="537" text-anchor="middle" font-size="11" fill="#854F0B">~13 × 9 ft</text>
+      <!-- WC symbols -->
+      <ellipse cx="290" cy="515" rx="7" ry="9" fill="none" stroke="#854F0B" stroke-width="0.8"/>
+      <rect x="308" y="508" width="12" height="16" rx="4" fill="none" stroke="#854F0B" stroke-width="0.8"/>
+
+      <!-- staircase (left side, ground) -->
+      <rect x="43" y="296" width="110" height="284" fill="#D3D1C7" stroke="#888780" stroke-width="1"/>
+      <text x="98" y="425" text-anchor="middle" font-size="12" fill="#444441" font-weight="500">Staircase</text>
+      <line x1="43" y1="330" x2="153" y2="330" stroke="#888780" stroke-width="0.5"/>
+      <line x1="43" y1="360" x2="153" y2="360" stroke="#888780" stroke-width="0.5"/>
+      <line x1="43" y1="390" x2="153" y2="390" stroke="#888780" stroke-width="0.5"/>
+      <line x1="43" y1="420" x2="153" y2="420" stroke="#888780" stroke-width="0.5"/>
+      <line x1="43" y1="450" x2="153" y2="450" stroke="#888780" stroke-width="0.5"/>
+      <line x1="43" y1="480" x2="153" y2="480" stroke="#888780" stroke-width="0.5"/>
+      <line x1="43" y1="510" x2="153" y2="510" stroke="#888780" stroke-width="0.5"/>
+      <line x1="43" y1="540" x2="153" y2="540" stroke="#888780" stroke-width="0.5"/>
+
+      <!-- dividing wall between stair & room/wc -->
+      <line x1="153" y1="293" x2="153" y2="580" stroke="#2C2C2A" stroke-width="2"/>
+      <line x1="153" y1="466" x2="417" y2="466" stroke="#2C2C2A" stroke-width="2"/>
+
+      <!-- open passage between stair and room -->
+      <rect x="153" y="296" width="102" height="170" fill="#F1EFE8" stroke="#888780" stroke-width="0.5" stroke-dasharray="4,2"/>
+      <text x="204" y="380" text-anchor="middle" font-size="11" fill="#888780">Passage /</text>
+      <text x="204" y="395" text-anchor="middle" font-size="11" fill="#888780">Lobby</text>
+
+      <!-- dimension lines -->
+      <line x1="40" y1="600" x2="420" y2="600" stroke="#888780" stroke-width="0.8"/>
+      <line x1="40" y1="596" x2="40" y2="604" stroke="#888780" stroke-width="0.8"/>
+      <line x1="420" y1="596" x2="420" y2="604" stroke="#888780" stroke-width="0.8"/>
+      <text x="230" y="614" text-anchor="middle" font-size="11" fill="#5F5E5A">30 ft (front)</text>
+
+      <line x1="24" y1="60" x2="24" y2="580" stroke="#888780" stroke-width="0.8"/>
+      <line x1="20" y1="60" x2="28" y2="60" stroke="#888780" stroke-width="0.8"/>
+      <line x1="20" y1="580" x2="28" y2="580" stroke="#888780" stroke-width="0.8"/>
+      <text x="14" y="320" text-anchor="middle" font-size="11" fill="#5F5E5A" transform="rotate(-90,14,320)">46.6 ft (length)</text>
+
+      <!-- floor label -->
+      <text x="230" y="30" text-anchor="middle" font-size="14" fill="#2C2C2A" font-weight="500">Ground floor plan</text>
+    </svg>
+  </div>
+
+  <div id="first-floor" style="display:none;">
+    <svg class="fp-canvas" viewBox="0 0 520 620" xmlns="http://www.w3.org/2000/svg">
+      <!-- north arrow -->
+      <g transform="translate(470,32)">
+        <circle cx="0" cy="0" r="16" fill="none" stroke="#185FA5" stroke-width="1"/>
+        <polygon points="0,-11 4,5 0,2 -4,5" fill="#185FA5"/>
+        <text x="0" y="24" text-anchor="middle" font-size="11" fill="#185FA5" font-weight="500">N</text>
+      </g>
+
+      <!-- outer wall -->
+      <rect x="40" y="60" width="380" height="520" fill="#F1EFE8" stroke="#2C2C2A" stroke-width="3" rx="0"/>
+
+      <!-- HALL (big, front-left) -->
+      <rect x="43" y="63" width="230" height="200" fill="#EAF3DE" stroke="#639922" stroke-width="1"/>
+      <text x="158" y="155" text-anchor="middle" font-size="15" fill="#27500A" font-weight="500">Hall / Living room</text>
+      <text x="158" y="174" text-anchor="middle" font-size="11" fill="#3B6D11">~19 × 16.5 ft</text>
+
+      <!-- MANDIR (open, in hall corner) -->
+      <rect x="330" y="63" width="87" height="100" fill="#FAEEDA" stroke="#BA7517" stroke-width="1.2" stroke-dasharray="5,2"/>
+      <text x="373" y="107" text-anchor="middle" font-size="12" fill="#633806" font-weight="500">Open</text>
+      <text x="373" y="122" text-anchor="middle" font-size="12" fill="#633806" font-weight="500">Mandir</text>
+      <!-- decorative arch hint -->
+      <path d="M345,86 Q373,70 401,86" fill="none" stroke="#BA7517" stroke-width="1.5"/>
+
+      <!-- KITCHEN (big, front-right lower) -->
+      <rect x="273" y="163" width="144" height="100" fill="#FAECE7" stroke="#D85A30" stroke-width="1"/>
+      <text x="345" y="210" text-anchor="middle" font-size="14" fill="#4A1B0C" font-weight="500">Kitchen</text>
+      <text x="345" y="228" text-anchor="middle" font-size="11" fill="#993C1D">~12 × 8.3 ft</text>
+      <!-- counter/slab hint -->
+      <rect x="275" y="165" width="8" height="95" fill="#D85A30" opacity="0.3"/>
+      <rect x="275" y="165" width="140" height="8" fill="#D85A30" opacity="0.3"/>
+
+      <!-- HORIZONTAL DIVIDER -->
+      <line x1="40" y1="263" x2="420" y2="263" stroke="#2C2C2A" stroke-width="2.5"/>
+
+      <!-- BEDROOM 1 (large, left rear) -->
+      <rect x="43" y="266" width="155" height="170" fill="#E6F1FB" stroke="#378ADD" stroke-width="1"/>
+      <text x="120" y="345" text-anchor="middle" font-size="13" fill="#042C53" font-weight="500">Bedroom 1</text>
+      <text x="120" y="362" text-anchor="middle" font-size="11" fill="#185FA5">~13 × 14 ft</text>
+      <!-- attached WC label -->
+      <rect x="43" y="436" width="155" height="97" fill="#FAEEDA" stroke="#BA7517" stroke-width="1"/>
+      <text x="120" y="483" text-anchor="middle" font-size="12" fill="#633806" font-weight="500">Attached WC 1</text>
+      <ellipse cx="80" cy="495" rx="6" ry="8" fill="none" stroke="#854F0B" stroke-width="0.8"/>
+      <rect x="100" y="488" width="11" height="15" rx="4" fill="none" stroke="#854F0B" stroke-width="0.8"/>
+
+      <!-- BEDROOM 2 (mid, center rear) -->
+      <rect x="198" y="266" width="120" height="170" fill="#E6F1FB" stroke="#378ADD" stroke-width="1"/>
+      <text x="258" y="345" text-anchor="middle" font-size="13" fill="#042C53" font-weight="500">Bedroom 2</text>
+      <text x="258" y="362" text-anchor="middle" font-size="11" fill="#185FA5">~10 × 14 ft</text>
+      <!-- common WC below bed 2 -->
+      <rect x="198" y="436" width="120" height="97" fill="#FAEEDA" stroke="#BA7517" stroke-width="1"/>
+      <text x="258" y="482" text-anchor="middle" font-size="11" fill="#633806" font-weight="500">Common WC</text>
+
+      <!-- BEDROOM 3 (smaller, right rear) -->
+      <rect x="318" y="266" width="99" height="170" fill="#EAF3DE" stroke="#639922" stroke-width="1"/>
+      <text x="367" y="345" text-anchor="middle" font-size="13" fill="#27500A" font-weight="500">Bedroom 3</text>
+      <text x="367" y="362" text-anchor="middle" font-size="11" fill="#3B6D11">~8.2 × 14 ft</text>
+      <text x="367" y="378" text-anchor="middle" font-size="10" fill="#3B6D11">(slightly smaller)</text>
+      <!-- attached WC right rear -->
+      <rect x="318" y="436" width="99" height="97" fill="#FAEEDA" stroke="#BA7517" stroke-width="1"/>
+      <text x="367" y="482" text-anchor="middle" font-size="11" fill="#633806" font-weight="500">Attached WC 2</text>
+      <ellipse cx="336" cy="495" rx="6" ry="8" fill="none" stroke="#854F0B" stroke-width="0.8"/>
+      <rect x="356" y="488" width="11" height="15" rx="4" fill="none" stroke="#854F0B" stroke-width="0.8"/>
+
+      <!-- staircase/landing area top -->
+      <rect x="43" y="63" width="0" height="0"/>
+      <!-- landing strip above hall -->
+
+      <!-- vertical dividers -->
+      <line x1="198" y1="263" x2="198" y2="580" stroke="#2C2C2A" stroke-width="1.5"/>
+      <line x1="318" y1="263" x2="318" y2="580" stroke="#2C2C2A" stroke-width="1.5"/>
+      <line x1="43" y1="436" x2="417" y2="436" stroke="#2C2C2A" stroke-width="1.5"/>
+      <line x1="273" y1="63" x2="273" y2="263" stroke="#2C2C2A" stroke-width="1.5"/>
+      <line x1="330" y1="63" x2="330" y2="163" stroke="#2C2C2A" stroke-width="1.5"/>
+      <line x1="273" y1="163" x2="420" y2="163" stroke="#2C2C2A" stroke-width="1.5"/>
+
+      <!-- door hints -->
+      <line x1="198" y1="300" x2="198" y2="316" stroke="#185FA5" stroke-width="1.5"/>
+      <path d="M198,300 Q214,300 214,316" fill="none" stroke="#185FA5" stroke-width="1" stroke-dasharray="3,2"/>
+      <line x1="318" y1="300" x2="318" y2="316" stroke="#639922" stroke-width="1.5"/>
+      <path d="M318,300 Q302,300 302,316" fill="none" stroke="#639922" stroke-width="1" stroke-dasharray="3,2"/>
+
+      <!-- dimension lines -->
+      <line x1="40" y1="600" x2="420" y2="600" stroke="#888780" stroke-width="0.8"/>
+      <line x1="40" y1="596" x2="40" y2="604" stroke="#888780" stroke-width="0.8"/>
+      <line x1="420" y1="596" x2="420" y2="604" stroke="#888780" stroke-width="0.8"/>
+      <text x="230" y="614" text-anchor="middle" font-size="11" fill="#5F5E5A">30 ft (front)</text>
+      <line x1="24" y1="60" x2="24" y2="580" stroke="#888780" stroke-width="0.8"/>
+      <line x1="20" y1="60" x2="28" y2="60" stroke="#888780" stroke-width="0.8"/>
+      <line x1="20" y1="580" x2="28" y2="580" stroke="#888780" stroke-width="0.8"/>
+      <text x="14" y="320" text-anchor="middle" font-size="11" fill="#5F5E5A" transform="rotate(-90,14,320)">46.6 ft (length)</text>
+
+      <text x="230" y="30" text-anchor="middle" font-size="14" fill="#2C2C2A" font-weight="500">First floor plan</text>
+    </svg>
+  </div>
+
+  <div class="fp-legend">
+    <div class="fp-leg-item"><div class="fp-leg-box" style="background:#E6F1FB;"></div> Bedroom</div>
+    <div class="fp-leg-item"><div class="fp-leg-box" style="background:#EAF3DE;"></div> Hall / Living</div>
+    <div class="fp-leg-item"><div class="fp-leg-box" style="background:#FAECE7;"></div> Kitchen</div>
+    <div class="fp-leg-item"><div class="fp-leg-box" style="background:#FAEEDA;"></div> Washroom / Mandir</div>
+    <div class="fp-leg-item"><div class="fp-leg-box" style="background:#D3D1C7;"></div> Staircase / Passage</div>
+  </div>
+
+  <div style="margin-top:1rem; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+    Dashed arcs = door swing direction. Dashed borders = open/semi-open areas. Indicative layout — exact measurements need a licensed architect.
+  </div>
+</div>
+
+<script>
+function showFloor(f) {
+  document.getElementById('ground-floor').style.display = f==='ground'?'block':'none';
+  document.getElementById('first-floor').style.display = f==='first'?'block':'none';
+  document.querySelectorAll('.fp-tab').forEach((t,i)=>{
+    t.classList.toggle('active', (i===0&&f==='ground')||(i===1&&f==='first'));
+  });
+}
+</script>
